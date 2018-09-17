@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    <listener>
+        <description>ServletContextListener</description>
+        <listener-class>com.boriska.maven.blogapp.AppContextListener</listener-class>
+    </listener>
     <servlet>
         <servlet-name>blogapp</servlet-name>
         <servlet-class>com.boriska.maven.blogapp.blogapp</servlet-class>
@@ -13,4 +17,21 @@
             30
         </session-timeout>
     </session-config>
+    <context-param>
+        <param-name>dbUser</param-name>
+        <param-value>APP</param-value>
+    </context-param>
+    <context-param>
+        <param-name>dbPassword</param-name>
+        <param-value>APP</param-value>
+    </context-param>
+    <context-param>
+        <param-name>dbURL</param-name>
+        <!--param-value>jdbc:derby://localhost:1527/testWebAppDB</param-value-->
+        <param-value>jdbc:derby:webAppDB;create=true</param-value>
+    </context-param>
+    <context-param>
+        <param-name>dbTableName</param-name>
+        <param-value>POSTS</param-value>
+    </context-param>
 </web-app>
